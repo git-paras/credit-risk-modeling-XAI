@@ -53,11 +53,16 @@ The project uses the "Give Me Some Credit" dataset containing information about 
 ```
 credit-risk-modeling/
 │
-├── credit_risk_modelling.py    # Main implementation file
+├── notebooks/                   # Jupyter notebooks
+│   └── credit_risk_modelling.ipynb
+├── data/                        # Dataset files
+│   └── cs-training.csv
+├── results/                     # Output plots and visualizations
+│   ├── roc_curves.png
+│   ├── feature_importance.png
+│   └── shap_plots.png
 ├── README.md                    # Project documentation
-├── requirements.txt             # Python dependencies
-└── data/
-    └── cs-training.csv         # Dataset file
+└── requirements.txt             # Python dependencies
 ```
 
 ## Installation
@@ -190,15 +195,25 @@ Local explanations provided for four key prediction scenarios:
 
 ## Usage
 
-### Running the Full Pipeline
+### Running the Analysis
 
-```python
-# Load and preprocess data
-df = pd.read_csv('data/cs-training.csv')
-
-# Run the complete analysis
-python credit_risk_modelling.py
+1. Navigate to the notebooks directory:
+```bash
+cd notebooks
 ```
+
+2. Launch Jupyter Notebook:
+```bash
+jupyter notebook credit_risk_modelling.ipynb
+```
+
+3. Run all cells sequentially to:
+   - Load and explore the dataset
+   - Preprocess features
+   - Train all three models
+   - Generate performance metrics
+   - Create visualizations (saved to results/)
+   - Generate explainability analyses
 
 ### Making Predictions on New Data
 
@@ -285,25 +300,3 @@ pip install -r requirements.txt
 - Deploy model as a REST API for real-time predictions
 - Add monitoring for model drift and performance degradation
 - Implement fairness metrics to ensure unbiased predictions
-
-## Contributing
-
-Contributions are welcome. Please open an issue to discuss proposed changes or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Dataset: "Give Me Some Credit" competition dataset
-- SHAP library: Scott Lundberg and the SHAP contributors
-- LIME library: Marco Tulio Ribeiro and contributors
-
-## Contact
-
-For questions or collaboration opportunities, please open an issue in the repository.
-
----
-
-**Note:** This project is for educational and research purposes. Credit risk assessment in production environments requires additional considerations including regulatory compliance, fairness testing, and ongoing model monitoring.
